@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details - StepStyle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand"><div class="brand-circle">S</div> StepStyle</a>
+      <div class="nav-right">
+        <a href="cart.html" class="icon-btn">🛒 <span id="cartCount" class="badge">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div style="margin-top: 40px;">
+      <a href="products.html" style="text-decoration:none; color:var(--muted);">← Back to Products</a>
+    </div>
+    
+    <div id="productDetailContent" class="cart-grid" style="margin-top:20px;">
+      </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    // Specific logic to load product details based on URL ID
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id');
+      const p = products.find(x => x.id === productId);
+      const container = document.getElementById("productDetailContent");
+
+      if (!p) {
+        container.innerHTML = "<h2>Product not found.</h2>";
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="card">
+          <img src="${p.image}" style="width:100%; border-radius:12px; height:500px; object-fit:cover;">
+        </div>
+        <div class="summary-card">
+          <div class="muted tiny">${p.category}</div>
+          <h1 style="margin: 10px 0;">${p.name}</h1>
+          <div class="bold" style="font-size: 1.5rem; margin-bottom: 20px;">$${p.price.toFixed(2)}</div>
+          
+          <div class="field">
+            <label>Select Size</label>
+            <select id="sizeSelect" style="width:100%; padding:10px; border-radius:8px; border:1px solid var(--border);">
+              ${p.sizes ? p.sizes.map(s => `<option value="${s}">${s}</option>`).join('') : '<option>9</option>'}
+            </select>
+          </div>
+
+          <button class="btn-primary" onclick="handleAddToCart('${p.id}')">Add to Cart</button>
+          <p class="muted small" style="margin-top:20px;">Fast delivery and free returns on all premium footwear.</p>
+        </div>
+      `;
+    });
+
+    function handleAddToCart(id) {
+      const p = products.find(x => x.id === id);
+      const size = document.getElementById("sizeSelect").value;
+      
+      // Use existing addToCart logic from app.js
+      const existing = cart.find(i => i.id === p.id && i.size === size);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...p, qty: 1, size: size });
+      }
+      
+      updateCartBadge();
+      window.location.href = "cart.html";
+    }
+  </script>
+</body>
+</html>

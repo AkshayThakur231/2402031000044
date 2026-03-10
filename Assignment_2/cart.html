@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping Cart - StepStyle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand"><div class="brand-circle">S</div> StepStyle</a>
+      <div class="nav-right">
+        <a href="cart.html" class="icon-btn">🛒 <span id="cartCount" class="badge">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="cart-header">Shopping Cart</h1>
+    
+    <div id="cartEmpty" class="hidden" style="text-align:center; padding:100px;">
+      <p class="muted">Your cart is empty.</p>
+      <a href="products.html" class="btn-primary" style="display:inline-block; width:auto;">Shop Now</a>
+    </div>
+
+    <div id="cartLayout" class="cart-grid">
+      <div id="cartItemsList" class="cart-items-list"></div>
+      
+      <aside class="summary-card">
+        <h3>Order Summary</h3>
+        <div class="summary-row" style="margin-top:20px;"><span>Subtotal</span><span id="subtotal"></span></div>
+        <div class="summary-row"><span>Shipping</span><span style="color:#10b981;">FREE</span></div>
+        <div class="summary-row"><span>Tax (8%)</span><span id="tax"></span></div>
+        <div class="summary-total"><span>Total</span><span id="total"></span></div>
+        
+        <a href="checkout.html" class="btn-primary">Proceed to Checkout</a>
+        <a href="products.html" class="btn-secondary">Continue Shopping</a>
+      </aside>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

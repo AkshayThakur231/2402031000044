@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Products - StepStyle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar shadow-sm">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand"><div class="brand-circle">S</div><span>StepStyle</span></a>
+      <nav class="nav-links">
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a href="cart.html" class="icon-btn">🛒 <span id="cartCount" class="badge">0</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="view-products" class="view active">
+      <div class="products-layout">
+        <aside class="card">
+          <h2>Filters</h2>
+          <div class="chip-row">
+            <span class="chip chip-active">All</span>
+            <span class="chip">Sneakers</span>
+          </div>
+        </aside>
+        <section>
+          <div class="section-header">
+            <h1>Our Products</h1>
+            <p id="productCount" class="muted small"></p>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="view-product" class="view">
+      <button class="link-back small" onclick="location.reload()">← Back to Products</button>
+      <div id="productDetail" class="product-detail"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.onload = renderProducts;
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - StepStyle</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="display:flex; align-items:center; justify-content:center; min-height:100vh; padding: 20px;">
+  <main class="container">
+    <section class="view active">
+      <form id="loginForm" class="card login-card text-center" style="max-width: 420px; margin: 0 auto;">
+        <div class="brand-circle big" style="margin: 0 auto 16px;">S</div>
+        <h1 style="font-size: 2rem; margin-bottom: 8px;">Welcome Back</h1>
+        <p class="muted small" style="margin-bottom: 32px;">Sign in to your account</p>
+
+        <div class="field text-left" style="margin-bottom: 20px;">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" required />
+        </div>
+
+        <div class="field text-left" style="margin-bottom: 16px;">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" required />
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <label class="small muted" style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+            <input type="checkbox"> Remember me
+          </label>
+          <a href="#" class="small bold" style="color: var(--text);">Forgot password?</a>
+        </div>
+
+        <button class="btn-primary full" type="submit" style="padding: 14px; font-size: 1rem;">Sign In</button>
+
+        <p class="muted small" style="margin-top: 24px;">
+          Don't have an account? <a href="#" class="bold" style="color: var(--text);">Sign up</a>
+        </p>
+
+        <div style="position: relative; margin: 32px 0; border-bottom: 1px solid var(--border);">
+          <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: white; padding: 0 12px; font-size: 12px; color: var(--muted);">Or continue with</span>
+        </div>
+
+        <div class="two-col-grid">
+          <button type="button" class="btn-ghost small" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem;">
+            <img src="https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png" style="width: 18px;"> Google
+          </button>
+          <button type="button" class="btn-ghost small" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 0.9rem;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" style="width: 18px;"> Facebook
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
